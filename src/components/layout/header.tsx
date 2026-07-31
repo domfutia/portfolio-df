@@ -4,7 +4,7 @@ import {navigation} from '@/config/navigation';
 import {LocaleSwitcher} from '@/components/ui/locale-switcher';
 import {ThemeToggle} from '@/components/ui/theme-toggle';
 
-export async function Header({locale}: {locale: string}) {
+export async function Header({locale, pathname}: {locale: string; pathname?: string}) {
   const t = await getTranslations('nav');
 
   return (
@@ -20,16 +20,50 @@ export async function Header({locale}: {locale: string}) {
         </Link>
 
         <nav className="siteNav" aria-label="Primary navigation">
-          {navigation.map((item) => (
-            <Link key={item.key} href={`/${locale}${item.href}`}>
-              {t(item.key)}
-            </Link>
-          ))}
+          {navigation.map((item) => {
+            const label = t(item.key);
+            const display = item.key === 'esn' ? label.toUpperCase() : label.toLowerCase();
+            return (
+              <Link key={item.key} href={`/${locale}${item.href}`}>
+                {display}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="headerActions">
-          <LocaleSwitcher currentLocale={locale} pathname="/" />
+          <LocaleSwitcher currentLocale={locale} currentPath={pathname ?? '/'} />
           <ThemeToggle />
+          <button
+            className="mobileMenuToggle"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+            onClick={(e) => {
+              const btn = e.currentTarget;
+              const nav = btn.nextElementSibling as HTMLElement | null;
+              if (nav) {
+                const isOpen = nav.classList.contains('mobileNavOpen');
+                nav.classList.toggle('mobileNavOpen');
+                btn.setAttribute('aria-expanded', String(!isOpen));
+              }
+            }}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M3 12h18M3 6h18M3 18h18" />
+            </svg>
+          </button>
+        </div>
+
+        <div className="mobileNav">
+          {navigation.map((item) => {
+            const label = t(item.key);
+            const display = item.key === 'esn' ? label.toUpperCase() : label.toLowerCase();
+            return (
+              <Link key={item.key} href={`/${locale}${item.href}`}>
+                {display}
+              </Link>
+            );
+          })}
         </div>
       </div>
     </header>
