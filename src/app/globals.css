@@ -124,7 +124,11 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 .localeSwitcher {
   display: inline-flex;
   border: 1px solid var(--border);
+<<<<<<< HEAD
   border-radius: 12px;
+=======
+  border-radius: var(--radius-xs);
+>>>>>>> fcf0a153cf66790f8775ea050692d6fbdf783ccf
   padding: 2px;
   background: var(--surface);
   gap: 2px;
@@ -135,9 +139,15 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
+<<<<<<< HEAD
   padding: 0.2rem 0.45rem;
   border-radius: 10px;
   font-size: 0.68rem;
+=======
+  padding: 0.2rem 0.5rem;
+  border-radius: calc(var(--radius-xs) - 2px);
+  font-size: 0.72rem;
+>>>>>>> fcf0a153cf66790f8775ea050692d6fbdf783ccf
   font-weight: 600;
   letter-spacing: 0.04em;
   transition: background 0.15s, color 0.15s;
@@ -161,6 +171,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
+<<<<<<< HEAD
   width: 28px;
   height: 28px;
   border-radius: 10px;
@@ -191,10 +202,24 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 }
 
 .mobileMenuToggle:hover {
+=======
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
+}
+
+.iconButton:hover {
+  color: var(--text);
+>>>>>>> fcf0a153cf66790f8775ea050692d6fbdf783ccf
   background: var(--surface-2);
   border-color: var(--text);
 }
 
+<<<<<<< HEAD
 .mobileNav {
   display: none;
   position: absolute;
@@ -225,6 +250,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   background: var(--surface);
 }
 
+=======
+>>>>>>> fcf0a153cf66790f8775ea050692d6fbdf783ccf
 /* ── Hero ── */
 .hero {
   padding: 5rem 0 3.5rem;
@@ -514,6 +541,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
     grid-template-columns: 1fr;
   }
 
+<<<<<<< HEAD
   .siteNav {
     display: none;
   }
@@ -527,5 +555,18 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
     flex-wrap: nowrap;
     padding: 0.75rem 0;
     gap: 0.75rem;
+=======
+  .headerInner {
+    min-height: auto;
+    flex-wrap: wrap;
+    padding: 0.75rem 0;
+    gap: 0.75rem;
+  }
+
+  .siteNav {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+>>>>>>> fcf0a153cf66790f8775ea050692d6fbdf783ccf
   }
 }
