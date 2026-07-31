@@ -1,32 +1,26 @@
 'use client';
 
+import {usePathname} from 'next/navigation';
+import {routing} from '@/i18n/routing';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { routing } from '@/i18n/routing';
+import {useLocale} from 'next-intl';
 
-export function LocaleSwitcher({
-  currentLocale,
-  currentPath,
-}: {
-  currentLocale: string;
-  currentPath?: string;
-}) {
+export function LocaleSwitcher({currentLocale}: {currentLocale: string}) {
   const pathname = usePathname();
-  const pathWithoutLocale = pathname.replace(/^\/[a-z]{2}/, '') || '/';
+  const locale = useLocale();
 
   return (
-    <div className="localeSwitcher" aria-label="Language switcher" role="group">
-      {routing.locales.map((locale) => {
-        const href = `/${locale}${pathWithoutLocale === '/' ? '' : pathWithoutLocale}`;
-        const active = locale === currentLocale;
+    <div className="localeSwitcher" role="group" aria-label="Language switcher">
+      {routing.locales.map((loc) => {
+        const isActive = loc === currentLocale;
         return (
           <Link
-            key={locale}
-            href={href}
-            className={active ? 'localeActive' : 'localeLink'}
-            aria-current={active ? 'true' : undefined}
+            key={loc}
+            href={`/${loc}${pathname}`}
+            className={isActive ? 'active' : ''}
+            aria-current={isActive ? 'page' : undefined}
           >
-            {locale.toUpperCase()}
+            {loc.toUpperCase()}
           </Link>
         );
       })}
