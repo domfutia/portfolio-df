@@ -21,7 +21,7 @@
   },
   "about": {
     "title": "Chi sono",
-    "intro": "Sono Domenico Futia, studente e ricercatore interessato alla filosofia della mente, all'approccio enattivo, alla fenomenologia e al tema dell'identitàĮį narrativa.",
+    "intro": "Sono Domenico Futia, studente e ricercatore interessato alla filosofia della mente, all'approccio enattivo, alla fenomenologia e al tema dell'identità narrativa.",
     "body": "Il mio lavoro si colloca all'incrocio tra riflessione filosofica, scienze cognitive, scrittura critica e sviluppo front-end. Questo portfolio raccoglie il mio percorso, i miei interessi di ricerca e i miei progetti editoriali e digitali."
   },
   "resume": {
@@ -45,5 +45,11 @@
   },
   "footer": {
     "text": "Domenico Futia 2026"
+  },
+  "meta": {
+    "themeToggle": "Cambia tema",
+    "langSwitch": "Lingua",
+    "menu": "Apri menu",
+    "home": "Pagina iniziale"
   }
 }

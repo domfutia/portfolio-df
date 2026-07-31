@@ -45,5 +45,11 @@
   },
   "footer": {
     "text": "Domenico Futia 2026"
+  },
+  "meta": {
+    "themeToggle": "Toggle theme",
+    "langSwitch": "Language",
+    "menu": "Toggle menu",
+    "home": "Homepage"
   }
 }

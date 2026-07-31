@@ -7,7 +7,6 @@ import {routing} from '@/i18n/routing';
 export function LocaleSwitcher({currentLocale, currentPath}: {currentLocale: string; currentPath?: string}) {
   const pathname = usePathname();
 
-  // Strip the locale prefix to get the path segment after /{lang}
   const pathWithoutLocale = pathname.replace(/^\/[a-z]{2}/, '') || '/';
 
   return (

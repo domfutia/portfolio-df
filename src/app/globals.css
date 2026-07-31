@@ -68,6 +68,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
+  position: relative;
 }
 
 .brandMark {
@@ -77,6 +78,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   font-weight: 600;
   font-size: 0.95rem;
   letter-spacing: -0.02em;
+  flex-shrink: 0;
 }
 
 .brandMark svg {
@@ -95,6 +97,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   gap: 0.25rem;
   flex-wrap: wrap;
   justify-content: flex-end;
+  margin-left: auto;
 }
 
 .siteNav a {
@@ -119,16 +122,14 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   display: flex;
   align-items: center;
   gap: 0.4rem;
+  flex-shrink: 0;
 }
 
+/* ── Locale Switcher — original pill style, small size ── */
 .localeSwitcher {
   display: inline-flex;
   border: 1px solid var(--border);
-<<<<<<< HEAD
   border-radius: 12px;
-=======
-  border-radius: var(--radius-xs);
->>>>>>> fcf0a153cf66790f8775ea050692d6fbdf783ccf
   padding: 2px;
   background: var(--surface);
   gap: 2px;
@@ -139,15 +140,9 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-<<<<<<< HEAD
   padding: 0.2rem 0.45rem;
   border-radius: 10px;
   font-size: 0.68rem;
-=======
-  padding: 0.2rem 0.5rem;
-  border-radius: calc(var(--radius-xs) - 2px);
-  font-size: 0.72rem;
->>>>>>> fcf0a153cf66790f8775ea050692d6fbdf783ccf
   font-weight: 600;
   letter-spacing: 0.04em;
   transition: background 0.15s, color 0.15s;
@@ -167,11 +162,11 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   color: var(--primary-fg);
 }
 
+/* ── Theme Toggle — original style, small size ── */
 .iconButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-<<<<<<< HEAD
   width: 28px;
   height: 28px;
   border-radius: 10px;
@@ -192,8 +187,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   display: none;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border-radius: 10px;
   border: 1px solid var(--border);
   background: var(--surface);
@@ -202,43 +197,25 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 }
 
 .mobileMenuToggle:hover {
-=======
-  width: 30px;
-  height: 30px;
-  border-radius: var(--radius-xs);
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--muted);
-  transition: color 0.15s, background 0.15s, border-color 0.15s;
-}
-
-.iconButton:hover {
-  color: var(--text);
->>>>>>> fcf0a153cf66790f8775ea050692d6fbdf783ccf
   background: var(--surface-2);
   border-color: var(--text);
 }
 
-<<<<<<< HEAD
 .mobileNav {
-  display: none;
   position: absolute;
-  top: 100%;
+  top: calc(100% + 1px);
   left: 0;
   right: 0;
   background: var(--bg);
   border-bottom: 1px solid var(--border);
-  padding: 0.75rem 0;
+  padding: 0.5rem 0;
   z-index: 10;
-}
-
-.mobileNavOpen {
-  display: block;
+  box-shadow: var(--shadow-md);
 }
 
 .mobileNav a {
   display: block;
-  padding: 0.6rem 1rem;
+  padding: 0.65rem 1rem;
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--muted);
@@ -250,8 +227,6 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   background: var(--surface);
 }
 
-=======
->>>>>>> fcf0a153cf66790f8775ea050692d6fbdf783ccf
 /* ── Hero ── */
 .hero {
   padding: 5rem 0 3.5rem;
@@ -541,7 +516,6 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
     grid-template-columns: 1fr;
   }
 
-<<<<<<< HEAD
   .siteNav {
     display: none;
   }
@@ -555,18 +529,5 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
     flex-wrap: nowrap;
     padding: 0.75rem 0;
     gap: 0.75rem;
-=======
-  .headerInner {
-    min-height: auto;
-    flex-wrap: wrap;
-    padding: 0.75rem 0;
-    gap: 0.75rem;
-  }
-
-  .siteNav {
-    order: 3;
-    width: 100%;
-    justify-content: flex-start;
->>>>>>> fcf0a153cf66790f8775ea050692d6fbdf783ccf
   }
 }
