@@ -51,5 +51,13 @@
     "langSwitch": "Language",
     "menu": "Toggle menu",
     "home": "Homepage"
+  },
+  "sections": {
+    "home": "Home",
+    "about": "About",
+    "resume": "Resume",
+    "research": "Research",
+    "esn": "ESN",
+    "blog": "Blog"
   }
 }

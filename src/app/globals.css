@@ -9,6 +9,13 @@
   --primary-fg: #ffffff;
   --accent: #3b82f6;
   --accent-soft: #eff6ff;
+  /* Blue/Lilac palette for togglers */
+  --toggler-bg: #eef2ff;
+  --toggler-border: #c7d2fe;
+  --toggler-active-bg: #4f46e5;
+  --toggler-active-fg: #ffffff;
+  --toggler-active-shadow: 0 1px 4px rgba(79,70,229,0.35);
+  --toggler-hover-bg: #e0e7ff;
   --shadow: 0 1px 3px rgba(0,0,0,0.07), 0 4px 16px rgba(0,0,0,0.05);
   --shadow-md: 0 2px 8px rgba(0,0,0,0.08), 0 8px 32px rgba(0,0,0,0.07);
   --radius: 16px;
@@ -29,6 +36,13 @@
   --primary-fg: #0a0a0a;
   --accent: #60a5fa;
   --accent-soft: #1e2a3d;
+  /* Blue/Lilac palette for togglers — dark mode */
+  --toggler-bg: #1e1b4b;
+  --toggler-border: #3730a3;
+  --toggler-active-bg: #818cf8;
+  --toggler-active-fg: #0f0e26;
+  --toggler-active-shadow: 0 1px 4px rgba(129,140,248,0.4);
+  --toggler-hover-bg: #2e2b5a;
   --shadow: 0 1px 3px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.25);
   --shadow-md: 0 2px 8px rgba(0,0,0,0.35), 0 8px 32px rgba(0,0,0,0.3);
 }
@@ -125,14 +139,15 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   flex-shrink: 0;
 }
 
-/* ── Locale Switcher — original pill style, small size ── */
+/* ── Locale Switcher — pill style, blue/lilac palette ── */
 .localeSwitcher {
   display: inline-flex;
-  border: 1px solid var(--border);
-  border-radius: 12px;
+  border: 1px solid var(--toggler-border);
+  border-radius: 9999px;
   padding: 2px;
-  background: var(--surface);
+  background: var(--toggler-bg);
   gap: 2px;
+  transition: border-color 0.15s, background 0.15s;
 }
 
 .localeLink,
@@ -140,29 +155,50 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.2rem 0.45rem;
-  border-radius: 10px;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
   font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  transition: background 0.15s, color 0.15s;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
 }
 
 .localeLink {
-  color: var(--muted);
+  color: var(--toggler-active-bg);
 }
 
 .localeLink:hover {
-  color: var(--text);
-  background: var(--surface-2);
+  color: var(--toggler-active-bg);
+  background: var(--toggler-hover-bg);
 }
 
 .localeActive {
-  background: var(--primary);
-  color: var(--primary-fg);
+  background: var(--toggler-active-bg);
+  color: var(--toggler-active-fg);
+  box-shadow: var(--toggler-active-shadow);
 }
 
-/* ── Theme Toggle — original style, small size ── */
+/* ── Theme Toggle — circular pill, blue/lilac palette ── */
+.themeToggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 9999px;
+  border: 1px solid var(--toggler-border);
+  background: var(--toggler-bg);
+  color: var(--toggler-active-bg);
+  transition: color 0.15s, background 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+
+.themeToggle:hover {
+  background: var(--toggler-hover-bg);
+  border-color: var(--toggler-active-bg);
+  box-shadow: var(--toggler-active-shadow);
+}
+
+/* Keep legacy .iconButton for backward compat (mobile toggle) */
 .iconButton {
   display: inline-flex;
   align-items: center;

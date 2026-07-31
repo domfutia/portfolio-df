@@ -51,5 +51,13 @@
     "langSwitch": "Lingua",
     "menu": "Apri menu",
     "home": "Pagina iniziale"
+  },
+  "sections": {
+    "home": "Home",
+    "about": "Chi sono",
+    "resume": "CV e percorso",
+    "research": "Ricerca",
+    "esn": "ESN",
+    "blog": "Blog"
   }
 }
