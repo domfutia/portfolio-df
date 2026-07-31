@@ -26,7 +26,7 @@ export function Header({locale, pathname}: {locale: string; pathname?: string}) 
         <nav className="siteNav" aria-label="Primary navigation">
           {navigation.map((item) => {
             const label = t(item.key);
-            const display = item.key === 'esn' ? label.toUpperCase() : label.toLowerCase();
+            const display = item.key === 'esn' ? label.toUpperCase() : label;
             return (
               <Link key={item.key} href={`/${locale}${item.href}`}>
                 {display}
@@ -61,7 +61,7 @@ export function Header({locale, pathname}: {locale: string; pathname?: string}) 
           <div className="mobileNav">
             {navigation.map((item) => {
               const label = t(item.key);
-              const display = item.key === 'esn' ? label.toUpperCase() : label.toLowerCase();
+              const display = item.key === 'esn' ? label.toUpperCase() : label;
               return (
                 <Link key={item.key} href={`/${locale}${item.href}`} onClick={() => setMenuOpen(false)}>
                   {display}
