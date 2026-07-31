@@ -1,10 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import {getTranslations} from 'next-intl/server';
+import {navigation} from '@/config/navigation';
 
 export default async function HomePage({params}: {params: Promise<{lang: string}>}) {
   const {lang} = await params;
   const t = await getTranslations('home');
+  const tNav = await getTranslations('nav');
+
+  const sectionLinks = navigation.filter(item => item.key !== 'home');
 
   return (
     <>
@@ -38,6 +42,26 @@ export default async function HomePage({params}: {params: Promise<{lang: string}
             <article className="panel"><h3>Research</h3><p>{t('featuredResearch')}</p></article>
             <article className="panel"><h3>Writing</h3><p>{t('featuredWriting')}</p></article>
             <article className="panel"><h3>Development</h3><p>{t('featuredDevelopment')}</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="sectionIntro">
+            <h2>{t('sectionsTitle')}</h2>
+          </div>
+          <div className="sectionLinksGrid">
+            {sectionLinks.map((item) => {
+              const label = tNav(item.key);
+              const display = item.key === 'esn' ? label.toUpperCase() : label.toLowerCase();
+              return (
+                <Link key={item.key} href={`/${lang}${item.href}`} className="sectionLinkCard">
+                  <span className="sectionLinkLabel">{display}</span>
+                  <span className="sectionLinkArrow">→</span>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>

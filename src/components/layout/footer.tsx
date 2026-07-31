@@ -1,12 +1,8 @@
-import {getTranslations} from 'next-intl/server';
-
 export async function Footer() {
-  const t = await getTranslations('footer');
-
   return (
     <footer className="siteFooter">
       <div className="container footerInner">
-        <p>{t('text')}</p>
+        <p className="footerText">Domenico Futia 2026</p>
       </div>
     </footer>
   );

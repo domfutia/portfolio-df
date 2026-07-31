@@ -1,11 +1,11 @@
 {
   "nav": {
-    "home": "Home",
-    "about": "Chi sono",
-    "resume": "CV",
-    "research": "Ricerca",
+    "home": "home",
+    "about": "chi sono",
+    "resume": "cv",
+    "research": "ricerca",
     "esn": "ESN",
-    "blog": "Blog"
+    "blog": "blog"
   },
   "home": {
     "eyebrow": "Portfolio professionale",
@@ -16,7 +16,8 @@
     "featuredTitle": "Aree principali",
     "featuredResearch": "Ricerca interdisciplinare tra fenomenologia, enattivismo e identità narrativa.",
     "featuredWriting": "Articoli, saggi e scrittura pubblica tra accademia e divulgazione.",
-    "featuredDevelopment": "Progetti web con Next.js, React e attenzione alla chiarezza editoriale."
+    "featuredDevelopment": "Progetti web con Next.js, React e attenzione alla chiarezza editoriale.",
+    "sectionsTitle": "Esplora le sezioni"
   },
   "about": {
     "title": "Chi sono",
@@ -43,6 +44,6 @@
     "external": "Apri su Substack"
   },
   "footer": {
-    "text": "Portfolio bilingue in Next.js con supporto MDX e tema chiaro/scuro."
+    "text": "Domenico Futia 2026"
   }
 }

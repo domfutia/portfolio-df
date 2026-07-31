@@ -4,7 +4,7 @@ import {navigation} from '@/config/navigation';
 import {LocaleSwitcher} from '@/components/ui/locale-switcher';
 import {ThemeToggle} from '@/components/ui/theme-toggle';
 
-export async function Header({locale}: {locale: string}) {
+export async function Header({locale, pathname}: {locale: string; pathname?: string}) {
   const t = await getTranslations('nav');
 
   return (
@@ -20,15 +20,19 @@ export async function Header({locale}: {locale: string}) {
         </Link>
 
         <nav className="siteNav" aria-label="Primary navigation">
-          {navigation.map((item) => (
-            <Link key={item.key} href={`/${locale}${item.href}`}>
-              {t(item.key)}
-            </Link>
-          ))}
+          {navigation.map((item) => {
+            const label = t(item.key);
+            const display = item.key === 'esn' ? label.toUpperCase() : label.toLowerCase();
+            return (
+              <Link key={item.key} href={`/${locale}${item.href}`}>
+                {display}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="headerActions">
-          <LocaleSwitcher currentLocale={locale} pathname="/" />
+          <LocaleSwitcher currentLocale={locale} currentPath={pathname ?? '/'} />
           <ThemeToggle />
         </div>
       </div>

@@ -1,11 +1,11 @@
 {
   "nav": {
-    "home": "Home",
-    "about": "About",
-    "resume": "Resume",
-    "research": "Research",
+    "home": "home",
+    "about": "about",
+    "resume": "resume",
+    "research": "research",
     "esn": "ESN",
-    "blog": "Blog"
+    "blog": "blog"
   },
   "home": {
     "eyebrow": "Professional portfolio",
@@ -16,7 +16,8 @@
     "featuredTitle": "Main areas",
     "featuredResearch": "Interdisciplinary research across phenomenology, enactivism, and narrative identity.",
     "featuredWriting": "Articles, essays, and public writing between academia and outreach.",
-    "featuredDevelopment": "Web projects with Next.js and React, shaped by editorial clarity."
+    "featuredDevelopment": "Web projects with Next.js and React, shaped by editorial clarity.",
+    "sectionsTitle": "Explore sections"
   },
   "about": {
     "title": "About",
@@ -43,6 +44,6 @@
     "external": "Open on Substack"
   },
   "footer": {
-    "text": "Bilingual Next.js portfolio with MDX support and light/dark theme."
+    "text": "Domenico Futia 2026"
   }
 }
