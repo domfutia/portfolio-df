@@ -14,8 +14,11 @@
     "primary": "Explore research",
     "secondary": "Read the blog",
     "featuredTitle": "Main areas",
+    "featuredResearchTitle": "Research",
     "featuredResearch": "Interdisciplinary research across phenomenology, enactivism, and narrative identity.",
+    "featuredWritingTitle": "Writing",
     "featuredWriting": "Articles, essays, and public writing between academia and outreach.",
+    "featuredDevelopmentTitle": "Development",
     "featuredDevelopment": "Web projects with Next.js and React, shaped by editorial clarity.",
     "sectionsTitle": "Explore sections"
   },
@@ -51,13 +54,5 @@
     "langSwitch": "Language",
     "menu": "Toggle menu",
     "home": "Homepage"
-  },
-  "sections": {
-    "home": "Home",
-    "about": "About",
-    "resume": "Resume",
-    "research": "Research",
-    "esn": "ESN",
-    "blog": "Blog"
   }
 }

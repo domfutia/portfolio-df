@@ -7,7 +7,7 @@ import {LocaleSwitcher} from '@/components/ui/locale-switcher';
 import {ThemeToggle} from '@/components/ui/theme-toggle';
 import {useState} from 'react';
 
-export function Header({locale, pathname}: {locale: string; pathname?: string}) {
+export function Header({locale}: {locale: string}) {
   const t = useTranslations('nav');
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -36,7 +36,7 @@ export function Header({locale, pathname}: {locale: string; pathname?: string}) 
         </nav>
 
         <div className="headerActions">
-          <LocaleSwitcher currentLocale={locale} currentPath={pathname ?? '/'} />
+          <LocaleSwitcher currentLocale={locale} />
           <ThemeToggle />
           <button
             className="mobileMenuToggle"
