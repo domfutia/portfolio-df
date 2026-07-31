@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "resume": "Resume",
+    "research": "Research",
+    "esn": "ESN",
+    "blog": "Blog"
+  },
+  "home": {
+    "eyebrow": "Professional portfolio",
+    "title": "Philosophy of mind, research, and digital writing.",
+    "description": "A bilingual space to present my profile, research activity, association experience, and written work.",
+    "primary": "Explore research",
+    "secondary": "Read the blog",
+    "featuredTitle": "Main areas",
+    "featuredResearch": "Interdisciplinary research across phenomenology, enactivism, and narrative identity.",
+    "featuredWriting": "Articles, essays, and public writing between academia and outreach.",
+    "featuredDevelopment": "Web projects with Next.js and React, shaped by editorial clarity."
+  },
+  "about": {
+    "title": "About",
+    "intro": "I am Domenico Futia, a student and researcher working on philosophy of mind, the enactive approach, phenomenology, and narrative identity.",
+    "body": "My work sits at the intersection of philosophical reflection, cognitive science, critical writing, and front-end development. This portfolio gathers my path, research interests, and editorial and digital projects."
+  },
+  "resume": {
+    "title": "Resume and background",
+    "intro": "Use this section to present education, experience, skills, and relevant activities in a structure that is easy to maintain."
+  },
+  "research": {
+    "title": "Research",
+    "intro": "A dedicated section for my theoretical interests, research topics, and in-depth MDX articles.",
+    "read": "Read article"
+  },
+  "esn": {
+    "title": "ESN experiences",
+    "intro": "A space to describe roles, projects, international activities, and skills developed through ESN."
+  },
+  "blog": {
+    "title": "Blog and articles",
+    "intro": "This section brings together local MDX posts and external content, including Substack publications.",
+    "read": "Open article",
+    "external": "Open on Substack"
+  },
+  "footer": {
+    "text": "Bilingual Next.js portfolio with MDX support and light/dark theme."
+  }
+}
