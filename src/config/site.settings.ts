@@ -10,13 +10,13 @@ export const siteSettings = {
     en: 'Pisa, Italy'
   },
   defaultLocale: 'it',
-  locales: ['it', 'en'] as const,
+  locales: ['it', 'en'],
   defaultTheme: 'light',
   social: {
     github: 'https://github.com/yourusername',
     linkedin: 'https://linkedin.com/in/yourusername',
     substack: 'https://yourname.substack.com'
   }
-};
+} as const;
 
 export type Locale = (typeof siteSettings.locales)[number];
