@@ -55,10 +55,9 @@ export default async function HomePage({params}: {params: Promise<{lang: string}
           <div className="sectionLinksGrid">
             {sectionLinks.map((item) => {
               const label = tNav(item.key);
-              const display = item.key === 'esn' ? label.toUpperCase() : label;
               return (
                 <Link key={item.key} href={`/${lang}${item.href}`} className="sectionLinkCard">
-                  <span className="sectionLinkLabel">{t(item.key)}</span>
+                  <span className="sectionLinkLabel">{label}</span>
                   <span className="sectionLinkArrow">→</span>
                 </Link>
               );

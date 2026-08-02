@@ -1,14 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import {useTranslations} from 'next-intl';
+import {getTranslations} from 'next-intl/server';
 import {navigation} from '@/config/navigation';
 import {LocaleSwitcher} from '@/components/ui/locale-switcher';
 import {ThemeToggle} from '@/components/ui/theme-toggle';
 import {useState} from 'react';
 
 export function Header({locale}: {locale: string}) {
-  const t = useTranslations('nav');
+  const t = getTranslations('nav');
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -61,7 +61,6 @@ export function Header({locale}: {locale: string}) {
           <div className="mobileNav">
             {navigation.map((item) => {
               const label = t(item.key);
-              const display = item.key === 'esn' ? label.toUpperCase() : label;
               return (
                 <Link key={item.key} href={`/${locale}${item.href}`} onClick={() => setMenuOpen(false)}>
                   {label}
