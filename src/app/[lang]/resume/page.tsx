@@ -1,4 +1,4 @@
-import {getTranslations, SetRequestLocale} from 'next-intl/server';
+import {getTranslations, setRequestLocale} from 'next-intl/server';
 import {SectionIntro} from '@/components/ui/section-intro';
 
 const education = [
@@ -18,7 +18,7 @@ const education = [
 
 export default async function ResumePage({params}: {params: Promise<{lang: string}>}) {
   const {lang} = await params;
-  SetRequestLocale(lang);
+  setRequestLocale(lang);
   const t = await getTranslations('resume');
 
   return (

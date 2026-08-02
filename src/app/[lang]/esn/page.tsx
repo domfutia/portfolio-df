@@ -1,4 +1,4 @@
-import {getTranslations, SetRequestLocale} from 'next-intl/server';
+import {getTranslations, setRequestLocale} from 'next-intl/server';
 import {SectionIntro} from '@/components/ui/section-intro';
 
 const experiences = [
@@ -18,7 +18,7 @@ const experiences = [
 
 export default async function EsnPage({params}: {params: Promise<{lang: string}>}) {
   const {lang} = await params;
-  SetRequestLocale(lang);
+  setRequestLocale(lang);
   const t = await getTranslations('esn');
 
   return (
