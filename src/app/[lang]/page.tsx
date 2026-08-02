@@ -1,10 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import {getTranslations} from 'next-intl/server';
+import {getTranslations, setRequestLocale} from 'next-intl/server';
 import {navigation} from '@/config/navigation';
 
 export default async function HomePage({params}: {params: Promise<{lang: string}>}) {
   const {lang} = await params;
+  setRequestLocale(lang);
   const t = await getTranslations('home');
   const tNav = await getTranslations('nav');
 
