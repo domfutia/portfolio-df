@@ -6,20 +6,21 @@ import Link from 'next/link';
 
 export function LocaleSwitcher({currentLocale}: {currentLocale: string}) {
   const pathname = usePathname();
-  
-  // Extract path without locale: /it/about -> about, /en -> '', / -> ''
+
   const parts = pathname.split('/').filter(Boolean);
   const pathWithoutLocale = parts.length > 1 ? parts.slice(1).join('/') : '';
 
   return (
-    <div className="localeSwitcher">
+    <div className="localeSwitcher" role="group" aria-label="Language switcher">
       {routing.locales.map((loc) => {
         const href = pathWithoutLocale ? `/${loc}/${pathWithoutLocale}` : `/${loc}`;
+        const isActive = loc === currentLocale;
         return (
           <Link
             key={loc}
             href={href}
-            className={loc === currentLocale ? 'active' : ''}
+            className={isActive ? 'localeActive' : 'localeLink'}
+            aria-current={isActive ? 'true' : undefined}
           >
             {loc.toUpperCase()}
           </Link>
