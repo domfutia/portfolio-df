@@ -6,8 +6,8 @@ import {navigation} from '@/config/navigation';
 export default async function HomePage({params}: {params: Promise<{lang: string}>}) {
   const {lang} = await params;
   setRequestLocale(lang);
-  const t = await getTranslations('home');
-  const tNav = await getTranslations('nav');
+  const t = await getTranslations('home', {locale: lang});
+  const tNav = await getTranslations('nav', {locale: lang});
 
   const sectionLinks = navigation.filter(item => item.key !== 'home');
 
