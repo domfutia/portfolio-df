@@ -1,14 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import {getTranslations} from 'next-intl/server';
+import {useTranslations} from 'next-intl';
 import {navigation} from '@/config/navigation';
 import {LocaleSwitcher} from '@/components/ui/locale-switcher';
 import {ThemeToggle} from '@/components/ui/theme-toggle';
 import {useState} from 'react';
 
-export async function Header({locale}: {locale: string}) {
-  const t = await getTranslations('nav');
+export function Header({locale}: {locale: string}) {
+  const t = useTranslations('nav');
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
