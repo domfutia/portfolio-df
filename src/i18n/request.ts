@@ -8,10 +8,6 @@ export default getRequestConfig(async ({requestLocale}) => {
     ? requested
     : null;
 
-    if (!locale) {
-    throw new Error(`Locale "${requested}" is not supported.`);
-  }
-
   return {
     locale,
     messages: (await import(`../messages/${locale}.json`)).default
