@@ -6,6 +6,7 @@ import {routing} from '@/i18n/routing';
 import {AppThemeProvider} from '@/components/providers/theme-provider';
 import {Header} from '@/components/layout/header';
 import {Footer} from '@/components/layout/footer';
+import {setRequestLocale} from 'next-intl/server';
 
 export const metadata: Metadata = {
   title: 'Domenico Futia | Portfolio',
@@ -24,6 +25,7 @@ export default async function LocaleLayout({
   params: Promise<{lang: string}>;
 }) {
   const {lang} = await params;
+  setRequestLocale(lang);
 
   if (!hasLocale(routing.locales, lang)) {
     notFound();

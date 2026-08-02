@@ -58,7 +58,7 @@ export default async function HomePage({params}: {params: Promise<{lang: string}
               const display = item.key === 'esn' ? label.toUpperCase() : label;
               return (
                 <Link key={item.key} href={`/${lang}${item.href}`} className="sectionLinkCard">
-                  <span className="sectionLinkLabel">{display}</span>
+                  <span className="sectionLinkLabel">{t(item.key)}</span>
                   <span className="sectionLinkArrow">→</span>
                 </Link>
               );
