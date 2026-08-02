@@ -1,8 +1,10 @@
 import Image from 'next/image';
-import {getTranslations} from 'next-intl/server';
+import {getTranslations, SetRequestLocale} from 'next-intl/server';
 import {SectionIntro} from '@/components/ui/section-intro';
 
-export default async function AboutPage() {
+export default async function AboutPage({params}: {params: Promise<{lang: string}>}) {
+  const {lang} = await params;
+  SetRequestLocale(lang);
   const t = await getTranslations('about');
 
   return (
