@@ -64,7 +64,7 @@ export function Header({locale}: {locale: string}) {
               const display = item.key === 'esn' ? label.toUpperCase() : label;
               return (
                 <Link key={item.key} href={`/${locale}${item.href}`} onClick={() => setMenuOpen(false)}>
-                  {display}
+                  {label}
                 </Link>
               );
             })}
