@@ -14,9 +14,10 @@ export function OnceUiProvider({ children }: { children: React.ReactNode }) {
     <NextThemesProvider
       attribute="data-theme"
       defaultTheme="light"
-      enableSystem={false}
+      enableSystem={true}
       disableTransitionOnChange
       themes={['light', 'dark']}
+      storageKey="portfolio-theme"
     >
       <OnceThemeProvider>
         <LayoutProvider>
