@@ -1,3 +1,5 @@
+import {decode} from 'html-entities';
+
 export type SubstackArticle = {
   slug: string;
   title: string;
@@ -11,22 +13,23 @@ export type SubstackArticle = {
   readingTime?: string;
 };
 
+function decodeEntities(value: string): string {
+  return decode(value, {level: 'html5'});
+}
+
 function stripHtml(html: string): string {
-  return html
-    .replace(/<[^>]+>/g, '')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&nbsp;/g, ' ')
-    .trim();
+  return decodeEntities(
+    html
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim()
+  );
 }
 
 function parseDate(raw: string): string {
   try {
     const d = new Date(raw);
-    if (isNaN(d.getTime())) return raw;
+    if (Number.isNaN(d.getTime())) return raw;
     return d.toISOString().slice(0, 10);
   } catch {
     return raw;
@@ -35,39 +38,46 @@ function parseDate(raw: string): string {
 
 function deterministicSlug(url: string): string {
   let hash = 0;
-  for (let i = 0; i < url.length; i++) {
-    const char = url.charCodeAt(i);
-    hash = ((hash << 5) - hash) + char;
+
+  for (let i = 0; i < url.length; i += 1) {
+    hash = (hash << 5) - hash + url.charCodeAt(i);
     hash |= 0;
   }
+
   return `ss-${Math.abs(hash).toString(36)}`;
 }
 
 function extractBetween(str: string, open: string, close: string): string | null {
   const start = str.indexOf(open);
   if (start === -1) return null;
+
   const end = str.indexOf(close, start + open.length);
   if (end === -1) return null;
+
   return str.slice(start + open.length, end);
 }
 
 function extractThumbnail(itemXml: string): string | undefined {
   const mediaMatch = itemXml.match(/<media:content[^>]+url="([^"]+)"/);
-  if (mediaMatch) return mediaMatch[1];
+  if (mediaMatch) return decodeEntities(mediaMatch[1]);
 
   const enclosureMatch = itemXml.match(/<enclosure[^>]+url="([^"]+)"/);
-  if (enclosureMatch) return enclosureMatch[1];
+  if (enclosureMatch) return decodeEntities(enclosureMatch[1]);
 
-  const cdataMatch = itemXml.match(/<content:encoded><!\[CDATA\[([\s\S]*?)\]\]><\/content:encoded>/);
+  const cdataMatch = itemXml.match(
+    /<content:encoded><!\[CDATA\[([\s\S]*?)\]\]><\/content:encoded>/
+  );
+
   if (cdataMatch) {
     const imgMatch = cdataMatch[1].match(/<img[^>]+src="([^"]+)"/);
-    if (imgMatch) return imgMatch[1];
+    if (imgMatch) return decodeEntities(imgMatch[1]);
   }
 
   const encodedMatch = itemXml.match(/<content:encoded>([\s\S]*?)<\/content:encoded>/);
+
   if (encodedMatch) {
     const imgMatch = encodedMatch[1].match(/<img[^>]+src="([^"]+)"/);
-    if (imgMatch) return imgMatch[1];
+    if (imgMatch) return decodeEntities(imgMatch[1]);
   }
 
   return undefined;
@@ -83,10 +93,10 @@ function parseItems(xml: string): SubstackArticle[] {
 
     const titleCdata = extractBetween(itemXml, '<title><![CDATA[', ']]></title>');
     const titlePlain = extractBetween(itemXml, '<title>', '</title>');
-    const title = stripHtml((titleCdata ?? titlePlain ?? '').trim());
+    const title = decodeEntities((titleCdata ?? titlePlain ?? '').trim());
 
     const link = extractBetween(itemXml, '<link>', '</link>') ?? '';
-    const externalUrl = link.trim();
+    const externalUrl = decodeEntities(link.trim());
 
     const pubDateRaw = extractBetween(itemXml, '<pubDate>', '</pubDate>') ?? '';
     const date = parseDate(pubDateRaw.trim());
@@ -119,7 +129,7 @@ function parseItems(xml: string): SubstackArticle[] {
 export async function getSubstackPosts(): Promise<SubstackArticle[]> {
   try {
     const res = await fetch('https://domfutia.substack.com/feed', {
-      next: { revalidate: 3600 }
+      next: {revalidate: 3600}
     });
 
     if (!res.ok) return [];
