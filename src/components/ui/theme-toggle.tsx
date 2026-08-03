@@ -1,23 +1,31 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { ThemeSwitcher } from '@once-ui-system/core';
+import { IconButton } from '@once-ui-system/core';
+import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
+import { useTranslations } from 'next-intl';
 
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
+  const t = useTranslations('meta');
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
 
-  if (!mounted) {
-    return <div className="themeTogglePlaceholder" aria-hidden="true" />;
-  }
+  const isDark = mounted && resolvedTheme === 'dark';
 
   return (
-    <ThemeSwitcher
-      value={resolvedTheme === 'dark' ? 'dark' : 'light'}
-      onValueChange={(value: string) => setTheme(value)}
-    />
+    <IconButton
+      variant="secondary"
+      size="m"
+      aria-label={t('themeToggle')}
+      onClick={() => {
+        if (!mounted) return;
+        setTheme(isDark ? 'light' : 'dark');
+      }}
+    >
+      {isDark ? <Sun size={16} /> : <Moon size={16} />}
+    </IconButton>
   );
 }
