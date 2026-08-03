@@ -3,6 +3,7 @@
 import {
   DataThemeProvider,
   IconProvider,
+  LayoutProvider,
   ThemeProvider as OnceThemeProvider,
   ToastProvider
 } from '@once-ui-system/core';
@@ -18,11 +19,13 @@ export function OnceUiProvider({ children }: { children: React.ReactNode }) {
       themes={['light', 'dark']}
     >
       <OnceThemeProvider>
-        <DataThemeProvider>
-          <ToastProvider>
-            <IconProvider>{children}</IconProvider>
-          </ToastProvider>
-        </DataThemeProvider>
+        <LayoutProvider>
+          <DataThemeProvider>
+            <ToastProvider>
+              <IconProvider>{children}</IconProvider>
+            </ToastProvider>
+          </DataThemeProvider>
+        </LayoutProvider>
       </OnceThemeProvider>
     </NextThemesProvider>
   );
