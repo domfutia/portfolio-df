@@ -25,7 +25,7 @@ export function Header({ locale }: { locale: string }) {
       <Flex
         as="div"
         className="container"
-        horizontal="space-between"
+        horizontal="between"
         vertical="center"
         gap="16"
         paddingY="16"
