@@ -38,9 +38,9 @@ function deterministicSlug(url: string): string {
   for (let i = 0; i < url.length; i++) {
     const char = url.charCodeAt(i);
     hash = ((hash << 5) - hash) + char;
-    hash = hash & hash;
+    hash |= 0;
   }
-  return 'ss-' + Math.abs(hash).toString(36);
+  return `ss-${Math.abs(hash).toString(36)}`;
 }
 
 function extractBetween(str: string, open: string, close: string): string | null {
@@ -52,25 +52,21 @@ function extractBetween(str: string, open: string, close: string): string | null
 }
 
 function extractThumbnail(itemXml: string): string | undefined {
-  // 1. <media:content url="...">
   const mediaMatch = itemXml.match(/<media:content[^>]+url="([^"]+)"/);
   if (mediaMatch) return mediaMatch[1];
 
-  // 2. <enclosure url="...">
-  const encMatch = itemXml.match(/<enclosure[^>]+url="([^"]+)"/);
-  if (encMatch) return encMatch[1];
+  const enclosureMatch = itemXml.match(/<enclosure[^>]+url="([^"]+)"/);
+  if (enclosureMatch) return enclosureMatch[1];
 
-  // 3. First <img src="..."> inside <content:encoded> CDATA
-  const cdataMatch = itemXml.match(/<content:encoded><!\[CDATA\[(.*?)\]\]><\/content:encoded>/s);
+  const cdataMatch = itemXml.match(/<content:encoded><!\[CDATA\[([\s\S]*?)\]\]><\/content:encoded>/);
   if (cdataMatch) {
     const imgMatch = cdataMatch[1].match(/<img[^>]+src="([^"]+)"/);
     if (imgMatch) return imgMatch[1];
   }
 
-  // 4. First <img src="..."> inside plain <content:encoded>
-  const contentEncMatch = itemXml.match(/<content:encoded>(.*?)<\/content:encoded>/s);
-  if (contentEncMatch) {
-    const imgMatch = contentEncMatch[1].match(/<img[^>]+src="([^"]+)"/);
+  const encodedMatch = itemXml.match(/<content:encoded>([\s\S]*?)<\/content:encoded>/);
+  if (encodedMatch) {
+    const imgMatch = encodedMatch[1].match(/<img[^>]+src="([^"]+)"/);
     if (imgMatch) return imgMatch[1];
   }
 
@@ -79,8 +75,8 @@ function extractThumbnail(itemXml: string): string | undefined {
 
 function parseItems(xml: string): SubstackArticle[] {
   const items: SubstackArticle[] = [];
-  const itemRegex = /<item>(.*?)<\/item>/gs;
-  let match;
+  const itemRegex = /<item>([\s\S]*?)<\/item>/g;
+  let match: RegExpExecArray | null;
 
   while ((match = itemRegex.exec(xml)) !== null) {
     const itemXml = match[1];
@@ -97,7 +93,7 @@ function parseItems(xml: string): SubstackArticle[] {
 
     const descCdata = extractBetween(itemXml, '<description><![CDATA[', ']]></description>');
     const descPlain = extractBetween(itemXml, '<description>', '</description>');
-    const description = stripHtml((descCdata ?? descPlain ?? '')).slice(0, 280);
+    const description = stripHtml(descCdata ?? descPlain ?? '').slice(0, 280);
 
     const cover = extractThumbnail(itemXml);
     const slug = deterministicSlug(externalUrl || title);
@@ -113,7 +109,7 @@ function parseItems(xml: string): SubstackArticle[] {
       tags: [],
       published: true,
       source: 'substack',
-      externalUrl,
+      externalUrl
     });
   }
 
@@ -123,8 +119,8 @@ function parseItems(xml: string): SubstackArticle[] {
 export async function getSubstackPosts(): Promise<SubstackArticle[]> {
   try {
     const res = await fetch('https://domfutia.substack.com/feed', {
-      next: { revalidate: 3600 },
-    } as RequestInit & { next?: { revalidate?: number } });
+      next: { revalidate: 3600 }
+    });
 
     if (!res.ok) return [];
 
