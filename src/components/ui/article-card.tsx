@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import type {ArticleMeta} from '@/lib/content';
 
 export function ArticleCard({
@@ -19,6 +20,19 @@ export function ArticleCard({
 
   return (
     <article className="articleCard">
+      {article.cover ? (
+        article.cover.startsWith('https://') ? (
+          <Image
+            src={article.cover}
+            alt={article.title}
+            width={640}
+            height={360}
+            className="articleCover"
+          />
+        ) : (
+          <img src={article.cover} alt={article.title} className="articleCover" />
+        )
+      ) : null}
       <div className="articleMeta">
         <span>{article.date}</span>
         {article.readingTime ? <span>{article.readingTime}</span> : null}

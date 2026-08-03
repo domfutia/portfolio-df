@@ -10,8 +10,12 @@ const withMDX = createMDX({
 const nextConfig: NextConfig = {
   pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
   images: {
-    formats: ['image/avif', 'image/webp']
-  }
+    formats: ['image/avif', 'image/webp'],
+    remotePatterns: [
+      { protocol: 'https', hostname: 'substackcdn.com' },
+      { protocol: 'https', hostname: 'substack-post-media.s3.amazonaws.com' },
+    ],
+  },
 };
 
 export default withNextIntl(withMDX(nextConfig));
