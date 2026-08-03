@@ -1,11 +1,11 @@
 {
   "nav": {
-    "home": "home",
-    "about": "about",
-    "resume": "resume",
-    "research": "research",
+    "home": "Home",
+    "about": "About",
+    "resume": "Resume",
+    "research": "Research",
     "esn": "ESN",
-    "blog": "blog"
+    "blog": "Blog"
   },
   "home": {
     "eyebrow": "Professional portfolio",
