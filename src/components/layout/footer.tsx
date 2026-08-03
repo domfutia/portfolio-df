@@ -1,12 +1,22 @@
-import {getTranslations} from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
+import { Flex, Line, Text } from '@once-ui-system/core';
 
 export async function Footer() {
   const t = await getTranslations('footer');
+
   return (
     <footer className="siteFooter">
-      <div className="container footerInner">
-        <p className="footerText">{t('text')}</p>
-      </div>
+      <Line />
+      <Flex
+        className="container"
+        horizontal="center"
+        vertical="center"
+        paddingY="24"
+      >
+        <Text className="footerText" variant="body-default-s" onBackground="neutral-weak">
+          {t('text')}
+        </Text>
+      </Flex>
     </footer>
   );
 }

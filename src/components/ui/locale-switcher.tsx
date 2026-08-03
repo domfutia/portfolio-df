@@ -1,31 +1,39 @@
 'use client';
 
-import {usePathname} from 'next/navigation';
-import {routing} from '@/i18n/routing';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { Flex, Button } from '@once-ui-system/core';
+import { routing } from '@/i18n/routing';
 
-export function LocaleSwitcher({currentLocale}: {currentLocale: string}) {
+export function LocaleSwitcher({ currentLocale }: { currentLocale: string }) {
   const pathname = usePathname();
-
   const parts = pathname.split('/').filter(Boolean);
   const pathWithoutLocale = parts.length > 1 ? parts.slice(1).join('/') : '';
 
   return (
-    <div className="localeSwitcher" role="group" aria-label="Language switcher">
+    <Flex
+      role="group"
+      aria-label="Language switcher"
+      className="localeSwitcher"
+      gap="4"
+    >
       {routing.locales.map((loc) => {
         const href = pathWithoutLocale ? `/${loc}/${pathWithoutLocale}` : `/${loc}`;
         const isActive = loc === currentLocale;
+
         return (
-          <Link
+          <Button
             key={loc}
-            href={href}
-            className={isActive ? 'localeActive' : 'localeLink'}
-            aria-current={isActive ? 'true' : undefined}
+            asChild
+            size="s"
+            variant={isActive ? 'primary' : 'secondary'}
           >
-            {loc.toUpperCase()}
-          </Link>
+            <Link href={href} aria-current={isActive ? 'true' : undefined}>
+              {loc.toUpperCase()}
+            </Link>
+          </Button>
         );
       })}
-    </div>
+    </Flex>
   );
 }

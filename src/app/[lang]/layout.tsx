@@ -1,12 +1,11 @@
-import type {Metadata} from 'next';
-import {NextIntlClientProvider, hasLocale} from 'next-intl';
-import {notFound} from 'next/navigation';
-import {getMessages} from 'next-intl/server';
-import {routing} from '@/i18n/routing';
-import {AppThemeProvider} from '@/components/providers/theme-provider';
-import {Header} from '@/components/layout/header';
-import {Footer} from '@/components/layout/footer';
-import {setRequestLocale} from 'next-intl/server';
+import type { Metadata } from 'next';
+import { NextIntlClientProvider, hasLocale } from 'next-intl';
+import { notFound } from 'next/navigation';
+import { getMessages, setRequestLocale } from 'next-intl/server';
+import { routing } from '@/i18n/routing';
+import { OnceUiProvider } from '@/components/providers/once-ui-provider';
+import { Header } from '@/components/layout/header';
+import { Footer } from '@/components/layout/footer';
 
 export const metadata: Metadata = {
   title: 'Domenico Futia | Portfolio',
@@ -14,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 export function generateStaticParams() {
-  return routing.locales.map((lang) => ({lang}));
+  return routing.locales.map((lang) => ({ lang }));
 }
 
 export default async function LocaleLayout({
@@ -22,9 +21,9 @@ export default async function LocaleLayout({
   params
 }: {
   children: React.ReactNode;
-  params: Promise<{lang: string}>;
+  params: Promise<{ lang: string }>;
 }) {
-  const {lang} = await params;
+  const { lang } = await params;
   setRequestLocale(lang);
 
   if (!hasLocale(routing.locales, lang)) {
@@ -37,11 +36,11 @@ export default async function LocaleLayout({
     <html lang={lang} suppressHydrationWarning>
       <body>
         <NextIntlClientProvider messages={messages}>
-          <AppThemeProvider>
+          <OnceUiProvider>
             <Header locale={lang} />
             <main>{children}</main>
             <Footer />
-          </AppThemeProvider>
+          </OnceUiProvider>
         </NextIntlClientProvider>
       </body>
     </html>
