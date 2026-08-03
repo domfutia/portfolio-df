@@ -29,7 +29,70 @@
   },
   "resume": {
     "title": "Resume and background",
-    "intro": "Use this section to present education, experience, skills, and relevant activities in a structure that is easy to maintain."
+    "intro": "Philosophy student and worker in the tourism sector. Combining the analytical approach of humanistic studies with pragmatism developed in the field, I tackle daily challenges with a broad vision, mental flexibility, and a rapid learning ability.",
+    "experienceTitle": "Work Experience",
+    "experience": [
+      {
+        "role": "Tour Excursion Assistant",
+        "org": "Global Cruises LLC",
+        "period": "Sep 2024 – present",
+        "description": "Supporting tourist guides during group excursions between Pisa and Florence. Assisting international visitors and people with specific needs; managing technical equipment and taking photographs for tourists."
+      },
+      {
+        "role": "Academic Tutor",
+        "org": "University of Pisa",
+        "period": "Sep 2025 – Feb 2026",
+        "description": "Weekly study support sessions for students enrolled in 'Introduction to Philosophy of Mind'. Clarifying theoretical concepts and providing in-depth insights to support exam preparation."
+      }
+    ],
+    "educationTitle": "Education",
+    "education": [
+      {
+        "degree": "Master's Degree in Philosophy and Forms of Knowledge",
+        "org": "University of Pisa",
+        "period": "Nov 2022 – present",
+        "description": "Focus on Identity, Consciousness, and Philosophy of Mind."
+      },
+      {
+        "degree": "Erasmus+",
+        "org": "Universität Heidelberg",
+        "period": "Sep 2023 – Mar 2024",
+        "description": "Courses in Philosophy, Transcultural Studies, and German."
+      },
+      {
+        "degree": "Bachelor's Degree in Philosophy",
+        "org": "University of Pisa",
+        "period": "Sep 2019 – Nov 2022",
+        "description": "Graduated with honors (110/110 cum laude). Thesis: \"Bodily Self and Narrative Identity. Ricœur in Dialogue with Enactivism\"."
+      },
+      {
+        "degree": "High School Diploma – Social and Economic Sciences",
+        "org": "Licei G. Mazzini, Locri",
+        "period": "Sep 2014 – Jul 2019",
+        "description": "Graduated with honors (100/100 cum laude). Student representative at the Provincial Student Council and Internal Guarantee Body. Active participation in various school projects."
+      }
+    ],
+    "projectsTitle": "Projects and Volunteering",
+    "projects": [
+      {
+        "role": "Volunteer Member",
+        "org": "Erasmus Student Network Pisa – ETS",
+        "period": "Feb 2025 – present",
+        "description": "Active member and member of the Board of Directors (Vice-President) for the period Feb 2026 – Jul 2026."
+      },
+      {
+        "role": "Journalist",
+        "org": "Blog \"L'Obbiettivo\"",
+        "period": "Dec 2016 – Sep 2019",
+        "description": "Writing news and current affairs articles, conducting interviews, moderating debates."
+      }
+    ],
+    "skillsTitle": "Skills",
+    "skills": {
+      "soft": "Excellent interpersonal and communication skills; Public Speaking; Event Organisation; Stakeholder Management; Copywriting; Storytelling; Canva",
+      "languages": "Italian (Native), English (Advanced), German (Intermediate), Spanish (Intermediate)",
+      "digital": "Microsoft Office (Intermediate), Google Suite (Intermediate), Python (Beginner)"
+    }
   },
   "research": {
     "title": "Research",

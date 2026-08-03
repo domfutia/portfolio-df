@@ -24,12 +24,75 @@
   },
   "about": {
     "title": "Chi sono",
-    "intro": "Sono Domenico Futia, studente e ricercatore interessato alla filosofia della mente, all'approccio enattivo, alla fenomenologia e al tema dell'identità·°narrativa.",
+    "intro": "Sono Domenico Futia, studente e ricercatore interessato alla filosofia della mente, all'approccio enattivo, alla fenomenologia e al tema dell'identità narrativa.",
     "body": "Il mio lavoro si colloca all'incrocio tra riflessione filosofica, scienze cognitive, scrittura critica e sviluppo front-end. Questo portfolio raccoglie il mio percorso, i miei interessi di ricerca e i miei progetti editoriali e digitali."
   },
   "resume": {
     "title": "CV e percorso",
-    "intro": "Qui puoi presentare formazione, esperienze, competenze e attività rilevanti in una struttura facilmente aggiornabile."
+    "intro": "Studente di Filosofia e lavoratore nel settore turistico. Unendo l'approccio analitico degli studi umanistici al pragmatismo sviluppato sul campo, affronto le sfide quotidiane con visione d'insieme, flessibilità mentale e una rapida capacità di apprendimento.",
+    "experienceTitle": "Esperienza professionale",
+    "experience": [
+      {
+        "role": "Assistente alle Escursioni Turistiche",
+        "org": "Global Cruises LLC",
+        "period": "Set 2024 – in corso",
+        "description": "Affiancamento ad accompagnatori turistici durante escursioni di gruppo tra Pisa e Firenze. Supporto ai visitatori internazionali e a persone con esigenze specifiche; gestione dell'attrezzatura tecnica e realizzazione di scatti fotografici per i turisti."
+      },
+      {
+        "role": "Tutor Didattico",
+        "org": "Università di Pisa",
+        "period": "Set 2025 – Feb 2026",
+        "description": "Conduzione di incontri settimanali di supporto allo studio per i partecipanti al corso di 'Introduzione alla Filosofia della Mente'. Chiarimento dei concetti teorici e approfondimenti per supportare la preparazione dell'esame."
+      }
+    ],
+    "educationTitle": "Istruzione",
+    "education": [
+      {
+        "degree": "Laurea Magistrale in Filosofia e Forme del Sapere",
+        "org": "Università di Pisa",
+        "period": "Nov 2022 – in corso",
+        "description": "Focus su Identità, Coscienza e Filosofia della Mente."
+      },
+      {
+        "degree": "Erasmus+",
+        "org": "Universität Heidelberg",
+        "period": "Set 2023 – Mar 2024",
+        "description": "Corsi di Filosofia, Transcultural Studies e Tedesco."
+      },
+      {
+        "degree": "Laurea Triennale in Filosofia",
+        "org": "Università di Pisa",
+        "period": "Set 2019 – Nov 2022",
+        "description": "110/110 con Lode. Tesi: \"Sé Corporeo e Identità Narrativa. Ricœur in Dialogo con l'Enattivismo\"."
+      },
+      {
+        "degree": "Liceo delle Scienze Umane opzione Economico-Sociale",
+        "org": "Licei G. Mazzini, Locri",
+        "period": "Set 2014 – Lug 2019",
+        "description": "100/100 con Lode. Rappresentante alla Consulta Provinciale degli Studenti e Componente Studentesca dell'Organo di Garanzia Interno. Partecipazione attiva a vari progetti d'istituto."
+      }
+    ],
+    "projectsTitle": "Progetti e volontariato",
+    "projects": [
+      {
+        "role": "Socio Volontario",
+        "org": "Erasmus Student Network Pisa – ETS",
+        "period": "Feb 2025 – in corso",
+        "description": "Membro attivo e membro del Consiglio Direttivo (Vicepresidente) per il periodo 02/26 – 07/26."
+      },
+      {
+        "role": "Articolista",
+        "org": "Blog \"L'Obbiettivo\"",
+        "period": "Dic 2016 – Set 2019",
+        "description": "Redazione di articoli di cronaca e attualità, conduzione di interviste, mediazione di dibattiti."
+      }
+    ],
+    "skillsTitle": "Competenze",
+    "skills": {
+      "soft": "Ottime capacità relazionali e comunicative; Public Speaking; Organizzazione di Eventi; Stakeholder Management; Redazione Testi; Storytelling; Canva",
+      "languages": "Italiano (Madrelingua), Inglese (Avanzato), Tedesco (Intermedio), Spagnolo (Intermedio)",
+      "digital": "Pacchetto Office (Intermedio), GSuite (Intermedio), Python (Principiante)"
+    }
   },
   "research": {
     "title": "Ricerca",
