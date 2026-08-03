@@ -24,13 +24,12 @@ export function LocaleSwitcher({ currentLocale }: { currentLocale: string }) {
         return (
           <Button
             key={loc}
-            asChild
+            href={href}
             size="s"
             variant={isActive ? 'primary' : 'secondary'}
+            aria-current={isActive ? 'true' : undefined}
           >
-            <Link href={href} aria-current={isActive ? 'true' : undefined}>
-              {loc.toUpperCase()}
-            </Link>
+            {loc.toUpperCase()}
           </Button>
         );
       })}

@@ -101,13 +101,11 @@ export function Header({ locale }: { locale: string }) {
               <Button
                 key={item.key}
                 href={`/${locale}${item.href}`}
-                asChild
                 variant="tertiary"
                 fillWidth
+                onClick={() => setMenuOpen(false)}
               >
-                <Link onClick={() => setMenuOpen(false)} href={`/${locale}${item.href}`}>
-                  {t(item.key)}
-                </Link>
+                {t(item.key)}
               </Button>
             ))}
           </Flex>

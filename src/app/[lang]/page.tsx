@@ -36,11 +36,11 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                   {t('description')}
                 </Text>
                 <Flex gap="12" wrap>
-                  <Button asChild size="m" variant="primary">
-                    <Link href={`/${lang}/research`}>{t('primary')}</Link>
+                  <Button href={`/${lang}/research`} size="m" variant="primary">
+                    {t('primary')}
                   </Button>
-                  <Button asChild size="m" variant="secondary">
-                    <Link href={`/${lang}/blog`}>{t('secondary')}</Link>
+                  <Button href={`/${lang}/blog`} size="m" variant="secondary">
+                    {t('secondary')}
                   </Button>
                 </Flex>
               </Flex>
@@ -115,12 +115,12 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                 return (
                   <Button
                     key={item.key}
-                    asChild
+                    href={`/${lang}${item.href}`}
                     variant="secondary"
                     fillWidth
                     className="sectionLinkButton"
                   >
-                    <Link href={`/${lang}${item.href}`}>{label}</Link>
+                    {label}
                   </Button>
                 );
               })}
