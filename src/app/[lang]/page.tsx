@@ -23,7 +23,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
     <Flex as="div" direction="column">
       <section className="heroSection">
         <div className="container">
-          <Grid columns="2" mobileColumns="1" gap="24" className="heroGrid">
+          <Grid columns="2" gap="24" className="heroGrid">
             <Card padding="32" radius="xl" border="neutral-medium">
               <Flex direction="column" gap="20" vertical="start">
                 <Text className="eyebrow" variant="body-default-s">
@@ -66,7 +66,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
             <Heading as="h2" variant="display-strong-s">
               {t('featuredTitle')}
             </Heading>
-            <Grid columns="3" tabletColumns="2" mobileColumns="1" gap="16">
+            <Grid columns="3" gap="16">
               <Card padding="24" radius="l" border="neutral-medium">
                 <Flex direction="column" gap="12">
                   <Heading as="h3" variant="heading-strong-m">
@@ -108,7 +108,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
             <Heading as="h2" variant="display-strong-s">
               {t('sectionsTitle')}
             </Heading>
-            <Grid columns="3" tabletColumns="2" mobileColumns="1" gap="12">
+            <Grid columns="3" gap="24" className="heroGrid">
               {sectionLinks.map((item) => {
                 const label = tNav(item.key);
 
